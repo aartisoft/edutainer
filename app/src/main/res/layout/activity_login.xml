@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/application_background"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo" />
+
+    <com.edutainer.in.Utility.CustomEditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        custom:error=""
+        custom:icon="@mipmap/ic_mail"
+        custom:hint="Enter Email"
+        custom:text=""
+        custom:types="email" />
+
+    <com.edutainer.in.Utility.CustomEditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        custom:error=""
+        custom:icon="@mipmap/ic_password"
+        custom:hint="Enter Password"
+        custom:text=""
+        custom:types="password" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:layout_gravity="right"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        android:paddingRight="10dp"
+        android:id="@+id/forgot_password"
+        />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:text="Login"
+        android:textColor="@color/white" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:id="@+id/create_account"
+        />
+</LinearLayout>

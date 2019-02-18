@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/background_color"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:text="XYZ" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:text="abc@gmail.com" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@mipmap/btm_profile"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"/>
+    <TextView
+        android:id="@+id/change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="2dp"
+        android:drawableLeft="@mipmap/ic_password"
+        android:background="@color/white"/>
+    <TextView
+        android:id="@+id/transactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transactions"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="2dp"
+        android:drawableLeft="@mipmap/ic_notification"
+        android:background="@color/white"/>
+    <TextView
+        android:id="@+id/questions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Questions"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="2dp"
+        android:drawableLeft="@mipmap/ic_notification"
+        android:background="@color/white"/>
+</LinearLayout>

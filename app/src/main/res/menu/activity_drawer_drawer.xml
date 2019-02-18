@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_home"
+            android:icon="@mipmap/btm_home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/menu_account"
+            android:icon="@mipmap/btm_profile"
+            android:title="Account"
+            android:visible="false" />
+        <item
+            android:id="@+id/menu_subscripe"
+            android:icon="@mipmap/btm_profile"
+            android:title="Subscribe Now"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/menu_donate_now"
+            android:icon="@mipmap/btm_terms"
+            android:title="Donate Now"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/menu_refer_n_learn"
+            android:icon="@mipmap/menu_share"
+            android:title="Share App" />
+
+        <item
+            android:id="@+id/menu_ask_a_question"
+            android:icon="@mipmap/menu_refer"
+            android:title="Ask a Question?"
+            android:visible="false" />
+
+        <item
+            android:id="@+id/menu_about_us"
+            android:icon="@mipmap/btm_faq"
+            android:title="About Us" />
+
+        <item
+            android:id="@+id/menu_privac_policy"
+            android:icon="@mipmap/menu_refer"
+            android:title="Privacy Policy" />
+
+        <item
+            android:id="@+id/menu_terms_condition"
+            android:icon="@mipmap/btm_terms"
+            android:title="Terms &amp; Conditions" />
+
+        <item
+            android:id="@+id/menu_logout"
+            android:icon="@mipmap/menu_logout"
+            android:title="Logout" />
+    </group>
+</menu>

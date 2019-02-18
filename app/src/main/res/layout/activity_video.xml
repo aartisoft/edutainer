@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/application_background"
+    android:orientation="vertical"
+    tools:context=".Activity.VideoActivity">
+
+    <!--<fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard-->
+        <!--android:id="@+id/videoplayer"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp" />-->
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/application_background"
+        android:dividerHeight="10dp"
+        android:layoutAnimation="@anim/list_anim"
+        android:padding="10dp"
+        android:persistentDrawingCache="animation|scrolling"
+        android:scrollbars="none" />
+
+</LinearLayout>

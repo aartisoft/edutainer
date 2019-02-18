@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:id="@+id/coordinatorLayout"
+    android:background="@color/application_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:minWidth="400dp"
+            android:background="@drawable/shape_rectangle"
+            android:id="@+id/et_refer_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            android:drawableStart="@mipmap/ic_notification"
+            android:drawablePadding="8dp"
+            android:hint="Enter refer code"
+            android:text=""
+            android:inputType="textEmailAddress" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_button_login"
+            android:text="Submit"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:alpha="0.2"
+            android:src="@drawable/iot_a"
+            android:layout_width="match_parent"
+            android:layout_height="450dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_title"
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardElevation="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@drawable/shape_rectangle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <WebView
+                    android:layout_margin="4dp"
+                    android:id="@+id/wv_title"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_iot_basics"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp" />
+
+                <TextView
+                    android:layout_below="@+id/wv_title"
+                    android:id="@+id/tv_title"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    android:text="Introuduction to IoT "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_below="@+id/tv_title"
+                    android:gravity="start"
+                    android:lineSpacingExtra="4dp"
+                    android:padding="8dp"
+                    android:textColor="#555555"
+                    android:textSize="16sp"
+                    android:text="IoT means a world of connected things "
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardElevation="16dp"
+            android:id="@+id/cv_topics"
+            android:layout_below="@+id/cv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:paddingBottom="8dp"
+                android:background="@drawable/shape_rectangle"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_topic"
+                    android:paddingTop="8dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:lineSpacingExtra="4dp"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    android:text="Topics covered"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:id="@+id/rv_topics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardElevation="16dp"
+            android:id="@+id/cv_description"
+            android:layout_below="@+id/cv_topics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/shape_rectangle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_details"
+                    android:lineSpacingExtra="4dp"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    android:text="Details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:padding="8dp"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:text="Name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_name_value"
+                        android:padding="8dp"
+                        android:gravity="start"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:text="Introduction to iot"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_duration"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:text="Duration"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_duration_value"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="8dp"
+                        android:gravity="start"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:text="Introduction to iot"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_category"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:text="Category"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_category_value"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:text="Introduction to iot"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_kit_cost"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:text="Kit cost"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_kit_cost_value"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:text="Introduction to iot"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    android:background="#10000000"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_course_cost"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        android:text="Course cost"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_course_cost_value"
+                        android:padding="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:gravity="start"
+                        android:textColor="#555555"
+                        android:textSize="16sp"
+                        android:text="Introduction to iot"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="32dp"
+                    android:id="@+id/hardware_kit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#333333"
+                    android:text="Include Hardware Kit" />
+
+                <Button
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:background="@drawable/shape_button_login"
+                    android:text="buy now"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</ScrollView>

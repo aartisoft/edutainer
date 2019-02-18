@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/application_background"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+
+    <com.edutainer.in.Utility.CustomEditText
+        android:id="@+id/edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        custom:error=""
+        custom:hint="Enter Name"
+        custom:icon="@mipmap/ic_user"
+        custom:text=""
+        custom:types="text" />
+
+    <com.edutainer.in.Utility.CustomEditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        custom:error=""
+        custom:hint="Enter Email"
+        custom:icon="@mipmap/ic_mail"
+        custom:text=""
+        custom:types="email" />
+
+    <com.edutainer.in.Utility.CustomEditText
+        android:id="@+id/edt_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        custom:error=""
+        custom:hint="Enter Mobile"
+        custom:icon="@mipmap/ic_mobile"
+        custom:text=""
+        custom:types="number" />
+
+    <com.edutainer.in.Utility.CustomEditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        custom:error=""
+        custom:hint="Enter Password"
+        custom:icon="@mipmap/ic_password"
+        custom:text=""
+        custom:types="password" />
+
+
+    <Button
+        android:id="@+id/add_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="Create Account"
+        android:textColor="@color/white" />
+
+</LinearLayout>

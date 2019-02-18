@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#157efb</color>
+    <color name="colorPrimaryDark">#157efb</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="grey">#d3d3d3</color>
+    <color name="dkgrey">#aea7a7</color>
+    <color name="red">#dd0000</color>
+    <color name="green">#469f30</color>
+    <color name="category_color">#1A824ed2</color>
+    <color name="background_color">@color/colorPrimary</color>
+    <color name="home_text_color">#454A4E</color>
+    <color name="category_background_color">#673AB7</color>
+    <color name="bottomlinecolor">#cecaca</color>
+
+
+    <color name="back_red">#b56464</color>
+    <color name="back_green">#64a164</color>
+    <color name="back_blue">#6f6fe4</color>
+    <color name="back_grey">#a2a261</color>
+
+
+    <color name="application_background">#F0F4F5</color>
+
+
+    <color name="transparent">#00ffffff</color>
+
+
+    <color name="bgGradientStart">#000000</color>
+    <color name="bgGradientEnd">#d8000000</color>
+
+    <color name="bgSolidDark">#55000000</color>
+
+    <color name="headGradientStart">#00ffffff</color>
+    <color name="headGradientCenter">#00ffffff</color>
+    <color name="headGradientEnd">#96000000</color>
+
+    <color name="colorListDivider">#e6e6e6</color>
+
+    <color name="btnA">#327EA6</color>
+    <color name="btnB">#686088</color>
+    <color name="btnC">#A8A8A8</color>
+    <color name="btnD">#77CDFE</color>
+    <color name="btnE">#688878</color>
+    <color name="btnF">#6CA8CC</color>
+
+
+</resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:background="@drawable/gradient_home_b"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:scaleType="centerInside"
+            android:src="@drawable/img_iot_arduino"
+            android:id="@+id/iv_product_a"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_below="@+id/iv_product_a"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/shape_title_product"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:text="  IoT using Arduino "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:textAlignment="viewStart"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:lineSpacingExtra="6dp"
+            android:layout_below="@+id/tv_title"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:text="   You'll learn about how devices receive data from Arduino over Bluetooth and would be able to implement communication between the smart phones and home appliances. Basically, you'll know how smart homes work and how android devices are being used to control electrical outlets by using relay switches. "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.CardView
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="16dp"
+            android:layout_below="@+id/tv_description"
+            android:id="@+id/cv_learn_more"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_learn_more"
+                android:text="learn more >>"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/shape_button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.CardView>
+
+
+        <ImageView
+            android:alpha="0.1"
+            android:layout_below="@+id/tv_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iot_a"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ec="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Allen.HomeActivityTest">
+
+    <RelativeLayout
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
+
+        <ImageView
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_book"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="16dp"
+            android:id="@+id/iv_profile"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/bg_profile"
+            app:civ_border_width="0.5dp"
+            app:civ_border_color="#FFFFFF"/>
+
+        <TextView
+            android:layout_marginTop="260dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:text="Allen"
+            android:layout_toEndOf="@+id/iv_profile"
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:text="# edutainerallen"
+            android:layout_below="@+id/tv_name"
+            android:layout_toEndOf="@+id/iv_profile"
+            android:id="@+id/tv_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:lineSpacingExtra="4dp"
+            android:padding="16dp"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:text="Student | Engineer \nLove Live Learn\nVidi Vini Vici"
+            android:layout_below="@+id/tv_username"
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:layout_below="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.ramotion.expandingcollection.ECBackgroundSwitcherView
+                android:id="@+id/ec_bg_switcher_element"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:foreground="@drawable/background_gradient" />
+
+            <com.ramotion.expandingcollection.ECPagerView
+                android:id="@+id/ec_pager_element"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                ec:cardHeaderHeightExpanded="200dp"
+                ec:cardHeight="250dp"
+                ec:cardWidth="250dp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
