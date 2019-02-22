@@ -9,10 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.edutainer.in.Allen.HomeActivityTest;
 import com.edutainer.in.R;
 import com.edutainer.in.workplace.FirstScreen.FirstActivity;
+import com.edutainer.in.workplace.Helper.AppPref;
 import com.edutainer.in.workplace.HomeScreen.HomeActivity;
 import com.edutainer.in.workplace.Model.CourseModel;
 import org.json.JSONArray;
@@ -20,11 +23,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SplashActivity extends AppCompatActivity implements SplashContract.SplashView {
+    ImageView iv_splash;
+
     public static ArrayList<CourseModel> courseModels = new ArrayList<>();
     SplashContract.SplashPresenter presenter;
     Dialog dialog;
 
-    ImageView iv_splash;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,11 +72,26 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
 
     @Override
     public void handleLoadModel(String string) {
+        System.out.println("Splash: handleLoadModel response" + string);
         if (string.equalsIgnoreCase("No network")){
             //show no network available
-        }else{
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(SplashActivity.this, "Internet not available", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+        else if (string.contains("Exception")){
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(SplashActivity.this, "Internet not available", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+        else{
             try {
-                System.out.println("Splash: handleLoadModel response" + string);
                 courseModels = new ArrayList<>();
                 JSONArray jsonArray = new JSONArray(string);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -113,6 +132,12 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
                 decision();
             } catch (Exception e) {
                 e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(SplashActivity.this, "Internet not available", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         }
     }
@@ -121,20 +146,23 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Handler handler = new Handler();
+
+                if (AppPref.getInstance().getUSEREMAIL().equalsIgnoreCase("")) {
+                    startActivity(new Intent(SplashActivity.this, FirstActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    );
+                } else {
+                    startActivity(new Intent(SplashActivity.this, HomeActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    );
+                }
+             /*   Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(SplashActivity.this, FirstActivity.class)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        );
-//                        if (AppPref.getInstance().getUSEREMAIL().equalsIgnoreCase("")) {
-//                            sendToActivity(FirstActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        } else {
-//                            sendToActivity(DrawerActivity.class, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        }
+
                     }
-                }, 4000);
+                }, 4000);*/
             }
         });
 

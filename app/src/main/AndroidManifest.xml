@@ -12,64 +12,52 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".workplace.Splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".workplace.FirstScreen.FirstActivity"
-            android:theme="@style/AppTheme.NoActionBarNew"
-            android:screenOrientation="portrait" />
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew" />
         <activity
             android:name=".workplace.Login.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBarNew"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew"></activity>
         <activity
             android:name=".workplace.Register.RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBarNew"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew"></activity>
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".workplace.HomeScreen.HomeActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:theme="@style/AppTheme.NoActionBarNew"
             android:name=".workplace.CourseDetails.DetailActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew"></activity>
+        <activity
+            android:name=".workplace.Checkout.CheckoutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew"></activity>
         <activity
             android:name=".Allen.DrawerActivityTest"
             android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_live_rwGDD9lN0PcwkM" />
-
 
         <activity
             android:name=".Activity.SplashActivity"

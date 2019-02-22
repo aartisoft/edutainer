@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_search_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/av/ic_play_circle_outline_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -29,8 +29,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_mobile" />
-                            <entry key="sourceFile" value="C:\Users\Admin\Downloads\smartphone.svg" />
+                            <entry key="outputName" value="ic_understanding_iot" />
+                            <entry key="sourceFile" value="C:\Users\Admin\Documents\IoT.svg" />
                           </map>
                         </option>
                       </PersistentState>

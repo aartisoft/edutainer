@@ -25,6 +25,6 @@ public class SplashPresenterImpl implements SplashContract.SplashPresenter,
 
     @Override
     public void onDestroy() {
-
+        splashView = null;
     }
 }

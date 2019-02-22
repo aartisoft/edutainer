@@ -26,14 +26,24 @@ public class SingleModulePagerAdapter extends FragmentStatePagerAdapter {
         return mFragmentList.size();
     }
 
-    public void addFrag(Fragment fragment, Bundle bundle) {
-        fragment.setArguments(bundle);
+    public void addFrag(Fragment fragment) {
+//        fragment.setArguments(bundle);
         mFragmentList.add(fragment);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
+        switch (position){
+            case 0:
+                return "COURSES";
+            case 1:
+                return "ENROLLED";
+            case 2:
+                return "PROFILE";
+        }
         return "";
     }
+
+
 
 }

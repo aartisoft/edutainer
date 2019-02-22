@@ -14,7 +14,7 @@
         android:lineSpacingExtra="4dp"
         android:padding="8dp"
         android:textColor="#555555"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:text="dummy text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

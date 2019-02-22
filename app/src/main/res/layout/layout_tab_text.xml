@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/iv_tab"
+        android:src="@drawable/ic_android"
+        android:layout_width="16dp"
+        android:layout_height="16dp" />
+
+    <TextView
+        android:padding="4dp"
+        android:id="@+id/tv_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@assets/fonts/Nunito-SemiBold.ttf"
+        android:text="COURSES"
+        android:textColor="#666666"
+        android:textSize="12sp"/>
+</LinearLayout>

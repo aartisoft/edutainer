@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edutainer.in.R;
+import com.edutainer.in.workplace.Helper.AppPref;
 import com.edutainer.in.workplace.HomeScreen.HomeActivity;
 import com.edutainer.in.workplace.Login.LoginActivity;
 
@@ -134,12 +135,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                 if (status.equalsIgnoreCase("1")) {
                     String user_id = jsonObject.getString("user_id");
 
-//                    AppPref.getInstance().setUSERNAME(edt_name.getValue().toString());
-//                    AppPref.getInstance().setUSEREMAIL(edt_email.getValue().toString());
-//                    AppPref.getInstance().setUSERMOBILE(edt_mobile.getValue().toString());
-//                    AppPref.getInstance().setReferCode(edt_refer_code.getValue().toString());
-//                    AppPref.getInstance().setGenCode(gen_code);
-//                    AppPref.getInstance().setUserId(user_id);
+                    AppPref.getInstance().setUSERNAME(et_name.getText().toString());
+                    AppPref.getInstance().setUSEREMAIL(et_email.getText().toString());
+                    AppPref.getInstance().setUSERMOBILE(et_mobile.getText().toString());
+                    AppPref.getInstance().setReferCode(ref_code);
+                    AppPref.getInstance().setGenCode(gen_code);
+                    AppPref.getInstance().setUserId(user_id);
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -230,11 +231,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         if (string_name.equalsIgnoreCase("")) {
             et_name.setError("Please Enter Name");
             return;
-        } else if (string_email.equalsIgnoreCase("") || !isValidEmail(string_email)) {
-            et_email.setError("Please Provide Valid Email Id");
-            return;
-        } else if (string_mobile.equalsIgnoreCase("") || string_mobile.length() != 10) {
+        }
+        else if (string_mobile.equalsIgnoreCase("") || string_mobile.length() != 10) {
             et_mobile.setError("Please Provide Correct Mobile Number");
+            return;
+        }
+        else if (string_email.equalsIgnoreCase("") || !isValidEmail(string_email)) {
+            et_email.setError("Please Provide Valid Email Id");
             return;
         } else if (string_password.equalsIgnoreCase("")) {
             et_password.setError("Please Enter Password");
@@ -295,6 +298,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             @Override
             public void onClick(View v) {
                 ref_code = et_refer_code.getText().toString().trim();
+                tv_refer_code.setText("Referral: " + ref_code);
                 dialog.dismiss();
             }
         });

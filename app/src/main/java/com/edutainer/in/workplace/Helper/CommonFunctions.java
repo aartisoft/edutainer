@@ -153,4 +153,90 @@ public class CommonFunctions {
 
     }
 
+    public static void coupon_code(String coupon, final OkHttpAsyncResponse okHttpAsyncResponse){
+        RequestBody body = new FormBody.Builder().
+                add("coupon_code", coupon).
+                build();
+
+        final Request request = new Request.Builder().
+                url(BASE_URL + "apply_coupon.php").
+                post(body).
+                build();
+
+
+        AppController.getInstance().getOkHttpClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                okHttpAsyncResponse.processFinish(e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                okHttpAsyncResponse.processFinish(response.body().string());
+            }
+
+        });
+
+    }
+
+    public static void address(String street, String town, String state, String pinCode, String userId, final OkHttpAsyncResponse okHttpAsyncResponse){
+        RequestBody body = new FormBody.Builder().
+                add("street", street).
+                add("town", town).
+                add("state", state).
+                add("pincode", pinCode).
+                add("user_id", userId).
+                build();
+
+        final Request request = new Request.Builder().
+                url(BASE_URL + "user_address.php").
+                post(body).
+                build();
+
+
+        AppController.getInstance().getOkHttpClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                okHttpAsyncResponse.processFinish(e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                okHttpAsyncResponse.processFinish(response.body().string());
+            }
+
+        });
+
+    }
+
+    public static void payment(String user_id, String course_id, String status, String order_id, String date, String coupon_code, final OkHttpAsyncResponse okHttpAsyncResponse){
+        RequestBody body = new FormBody.Builder().
+                add("user_id", user_id).
+                add("course_id", course_id).
+                add("status", status).
+                add("order_id", date).
+                add("coupon_code", coupon_code).
+                build();
+
+        final Request request = new Request.Builder().
+                url(BASE_URL + "buy_course.php").
+                post(body).
+                build();
+
+
+        AppController.getInstance().getOkHttpClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                okHttpAsyncResponse.processFinish(e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                okHttpAsyncResponse.processFinish(response.body().string());
+            }
+
+        });
+
+    }
+
 }

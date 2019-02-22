@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,12 +17,14 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edutainer.in.Allen.HomeActivityTest;
 import com.edutainer.in.Allen.LoginActivityTest;
 import com.edutainer.in.R;
+import com.edutainer.in.workplace.Helper.AppPref;
 import com.edutainer.in.workplace.Helper.Preferences;
 import com.edutainer.in.workplace.HomeScreen.HomeActivity;
 import com.edutainer.in.workplace.Register.RegisterActivity;
@@ -36,9 +40,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     TextView tv_forgot_password;
     Button btn_login;
     TextView tv_create_account;
+    ImageView iv_visibility;
 
     Dialog dialog;
     private LoginContract.LoginPresenter presenter;
+    boolean isVisible = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,6 +68,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
         et_password = findViewById(R.id.et_password);
         et_password.setTypeface(OpenSans_Regular);
+
+        iv_visibility = findViewById(R.id.iv_visibility);
+        iv_visibility.setOnClickListener(this);
 
         tv_forgot_password = findViewById(R.id.tv_forgot_password);
         tv_forgot_password.setTypeface(OpenSans_Regular);
@@ -120,16 +129,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
                 String mobile = jsonObject.getString("mobile");
                 String email = jsonObject.getString("email");
                 String gen_code = jsonObject.getString("gen_code");
-                //String stream = jsonObject.getString("user_stream");
 
-                Preferences preferences = new Preferences(getBaseContext());
+                AppPref.getInstance().setUserId(user_id);
+                AppPref.getInstance().setUSERNAME(name);
+                AppPref.getInstance().setUSERMOBILE(mobile);
+                AppPref.getInstance().setUSEREMAIL(email);
+                AppPref.getInstance().setGenCode(gen_code);
 
-//                AppPref.getInstance().setUserId(user_id);
-//                AppPref.getInstance().setUSERNAME(name);
-//                AppPref.getInstance().setUSERMOBILE(mobile);
-//                AppPref.getInstance().setUSEREMAIL(email);
-//                AppPref.getInstance().setGenCode(gen_code);
-                //AppPref.getInstance().setUSERSTREAM(stream);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -271,6 +277,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
             case R.id.tv_create_account:
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                 overridePendingTransition(R.anim.slide_enter, R.anim.slide_exit);
+                break;
+            case R.id.iv_visibility:
+                if(!isVisible){
+                    et_password.setTransformationMethod(new HideReturnsTransformationMethod());
+                } else{
+                    et_password.setTransformationMethod(new PasswordTransformationMethod());
+                }
+                isVisible = !isVisible;
                 break;
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light"
@@ -9,9 +9,38 @@
 
     <ImageView
         android:scaleType="centerCrop"
-        android:src="@drawable/intro_d"
+        android:src="@drawable/bg_splash"
         android:id="@+id/iv_fourth_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
- </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_marginTop="96dp"
+        android:layout_centerHorizontal="true"
+        android:tint="@color/white"
+        android:src="@drawable/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:padding="1dp"
+        android:background="@drawable/shape_button_first_screen"
+        android:id="@+id/fl_youtube"
+        android:layout_below="@+id/iv_logo"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:src="@drawable/ic_play_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</RelativeLayout>

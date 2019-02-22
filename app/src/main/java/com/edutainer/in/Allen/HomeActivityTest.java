@@ -103,7 +103,7 @@ public class HomeActivityTest extends AppCompatActivity
                     break;
 
             }
-            myPagerAdapter.addFrag(new ProductFragment(), bundle);
+            myPagerAdapter.addFrag(new ProductFragment());
             myPagerAdapter.notifyDataSetChanged();
         }
     }

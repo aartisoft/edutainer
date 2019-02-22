@@ -72,22 +72,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:drawableStart="@drawable/ic_lock_filled"
-                android:drawablePadding="8dp"
-                android:gravity="center_vertical"
-                android:id="@+id/et_password"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingTop="16dp"
-                android:background="@android:color/transparent"
-                android:textColor="#666"
-                android:textSize="16sp"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password *"
-                android:textColorHint="#333"
-                android:inputType="textPassword"/>
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:drawableStart="@drawable/ic_lock_filled"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/et_password"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="16dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="#666"
+                    android:textSize="16sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Password *"
+                    android:textColorHint="#333"
+                    android:inputType="textPassword" />
+
+
+                <ImageView
+                    android:id="@+id/iv_visibility"
+                    android:padding="8dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_eye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
 
             <View
                 android:layout_marginStart="16dp"
@@ -98,6 +115,8 @@
         </LinearLayout>
 
         <TextView
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_forgot"
             android:id="@+id/tv_forgot_password"
             android:layout_alignParentEnd="true"
             android:paddingTop="8dp"
@@ -119,7 +138,7 @@
             android:id="@+id/cv_login"
             android:layout_above="@+id/tv_create_account"
             app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="16dp"
+            app:cardElevation="8dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_width="match_parent"
