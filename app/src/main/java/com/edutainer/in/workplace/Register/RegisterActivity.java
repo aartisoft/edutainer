@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +36,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     EditText et_mobile;
     EditText et_email;
     EditText et_password;
+    LinearLayout ll_refer;
+    ImageView iv_cancel_refer;
+    TextView tv_refer_code;
     CheckBox cb_terms;
     TextView tv_terms;
     Button btn_create_account;
     TextView tv_login;
-    TextView tv_refer_code;
     Dialog dialog;
 
     private String gen_code = "";
@@ -72,6 +77,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
         et_password = findViewById(R.id.et_password);
         et_password.setTypeface(OpenSans_Regular);
+
+        ll_refer = findViewById(R.id.ll_refer);
+
+        iv_cancel_refer = findViewById(R.id.iv_cancel_refer);
+        iv_cancel_refer.setOnClickListener(this);
 
         cb_terms = findViewById(R.id.cb_terms);
         cb_terms.setTypeface(OpenSans_Regular);
@@ -222,10 +232,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
 
     private void register() {
-        String string_name = et_name.getText().toString();
-        String string_mobile = et_mobile.getText().toString();
-        String string_email = et_email.getText().toString();
-        String string_password = et_password.getText().toString();
+        String string_name = et_name.getText().toString().trim();
+        String string_mobile = et_mobile.getText().toString().trim();
+        String string_email = et_email.getText().toString().trim();
+        String string_password = et_password.getText().toString().trim();
 
 
         if (string_name.equalsIgnoreCase("")) {
@@ -236,10 +246,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             et_mobile.setError("Please Provide Correct Mobile Number");
             return;
         }
-        else if (string_email.equalsIgnoreCase("") || !isValidEmail(string_email)) {
+       /* else if (string_email.equalsIgnoreCase("") || !isValidEmail(string_email)) {
             et_email.setError("Please Provide Valid Email Id");
             return;
-        } else if (string_password.equalsIgnoreCase("")) {
+        }*/
+        else if (string_password.equalsIgnoreCase("")) {
             et_password.setError("Please Enter Password");
             return;
         } else if (!cb_terms.isChecked()) {
@@ -276,7 +287,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             case R.id.tv_refer_code:
                 showReferDialog();
                 break;
-
+            case R.id.iv_cancel_refer:
+                ll_refer.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.white));
+                iv_cancel_refer.setVisibility(View.GONE);
+                tv_refer_code.setText("Have refer code? ");
         }
     }
 
@@ -298,7 +312,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             @Override
             public void onClick(View v) {
                 ref_code = et_refer_code.getText().toString().trim();
-                tv_refer_code.setText("Referral: " + ref_code);
+                tv_refer_code.setText(ref_code);
+                iv_cancel_refer.setVisibility(View.VISIBLE);
+                ll_refer.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.textColor));
                 dialog.dismiss();
             }
         });

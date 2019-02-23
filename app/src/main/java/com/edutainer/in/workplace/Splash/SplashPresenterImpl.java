@@ -3,7 +3,9 @@ package com.edutainer.in.workplace.Splash;
 import android.content.Context;
 
 public class SplashPresenterImpl implements SplashContract.SplashPresenter,
-    SplashContract.SplashInteraction.OnLoadModelFinishedListener {
+    SplashContract.SplashInteraction.OnLoadModelFinishedListener,
+    SplashContract.SplashInteraction.OnEnrolledFinishedListener
+{
 
     private SplashContract.SplashView splashView;
     private SplashContract.SplashInteraction splashInteraction;
@@ -19,6 +21,11 @@ public class SplashPresenterImpl implements SplashContract.SplashPresenter,
     }
 
     @Override
+    public void loadEnrolled(Context context, String userId) {
+        splashInteraction.enrolled(context, userId, this);
+    }
+
+    @Override
     public void onLoadModelFinished(String string) {
         splashView.handleLoadModel(string);
     }
@@ -26,5 +33,10 @@ public class SplashPresenterImpl implements SplashContract.SplashPresenter,
     @Override
     public void onDestroy() {
         splashView = null;
+    }
+
+    @Override
+    public void onEnrolledFinished(String string) {
+        splashView.handleEnrolled(string);
     }
 }

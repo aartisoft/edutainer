@@ -60,6 +60,7 @@ public class DetailActivity extends AppCompatActivity
     RecyclerAdapterTopics adapterTopics;
 
     boolean isTitleExpand = false;
+    String mode = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class DetailActivity extends AppCompatActivity
         presenter = new DetailPresenterImpl(this, new GetDetailInteractionImpl());
 
         courseModel = getIntent().getParcelableExtra("COURSE");
+        mode = getIntent().getStringExtra("MODE");
         presenter.lessons(DetailActivity.this, courseModel.getId()+"");
         setTitle(courseModel.getCourse_name());
 
@@ -164,7 +166,7 @@ public class DetailActivity extends AppCompatActivity
         rv_topics = findViewById(R.id.rv_topics);
         listLessons = new ArrayList<>();
         rv_topics.setLayoutManager(new LinearLayoutManager(DetailActivity.this, LinearLayoutManager.VERTICAL, false));
-        adapterTopics = new RecyclerAdapterTopics(DetailActivity.this, listLessons);
+        adapterTopics = new RecyclerAdapterTopics(DetailActivity.this, listLessons, courseModel, mode);
         rv_topics.setAdapter(adapterTopics);
     }
 

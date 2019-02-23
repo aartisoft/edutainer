@@ -98,8 +98,6 @@ public class SplashActivity extends RuntimePermissionsActivity implements ApiRes
                 courseModels.add(courseModel);
 
             }
-
-
             decision();
         } catch (Exception e) {
             e.printStackTrace();

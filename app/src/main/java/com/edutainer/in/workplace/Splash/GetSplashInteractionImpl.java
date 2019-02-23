@@ -19,4 +19,18 @@ public class GetSplashInteractionImpl implements SplashContract.SplashInteractio
             onLoadModelFinishedListener.onLoadModelFinished("No network");
         }
     }
+
+    @Override
+    public void enrolled(Context context, String userId, final OnEnrolledFinishedListener onEnrolledFinishedListener) {
+        if (CommonFunctions.isNetworkAvailable(context)){
+            CommonFunctions.enrolled(userId, new OkHttpAsyncResponse() {
+                @Override
+                public void processFinish(String output) {
+                    onEnrolledFinishedListener.onEnrolledFinished(output);
+                }
+            });
+        }else {
+            onEnrolledFinishedListener.onEnrolledFinished("No network");
+        }
+    }
 }

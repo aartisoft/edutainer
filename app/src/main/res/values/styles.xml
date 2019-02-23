@@ -23,10 +23,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:typeface">serif</item>
-        <item name="android:windowDisablePreview">true</item>
     </style>
-
 
     <style name="CircularProgress" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/white</item>

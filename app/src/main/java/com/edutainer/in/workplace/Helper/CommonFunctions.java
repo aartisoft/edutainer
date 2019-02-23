@@ -42,6 +42,31 @@ public class CommonFunctions {
         });
     }
 
+    public static void enrolled(String userId, final OkHttpAsyncResponse okHttpAsyncResponse){
+        RequestBody body = new FormBody.Builder().
+                add("id", userId).
+                build();
+
+        final Request request = new Request.Builder().
+                url(BASE_URL + "enrolledcourses.php").
+                post(body).
+                build();
+
+
+        AppController.getInstance().getOkHttpClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                okHttpAsyncResponse.processFinish(e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                okHttpAsyncResponse.processFinish(response.body().string());
+            }
+
+        });
+    }
+
     public static void login(String email_password, String password, final OkHttpAsyncResponse okHttpAsyncResponse){
         RequestBody body = new FormBody.Builder().
                 add("email", email_password).
@@ -134,6 +159,33 @@ public class CommonFunctions {
 
         final Request request = new Request.Builder().
                 url(BASE_URL + "lessons.php").
+                post(body).
+                build();
+
+
+        AppController.getInstance().getOkHttpClient().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                okHttpAsyncResponse.processFinish(e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                okHttpAsyncResponse.processFinish(response.body().string());
+            }
+
+        });
+
+    }
+
+
+    public static void topic(String id, final OkHttpAsyncResponse okHttpAsyncResponse){
+        RequestBody body = new FormBody.Builder().
+                add("id", id).
+                build();
+
+        final Request request = new Request.Builder().
+                url(BASE_URL + "getconcepts.php").
                 post(body).
                 build();
 

@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.Home
         myPagerAdapter = new SingleModulePagerAdapter(getSupportFragmentManager(), mFragmentList);
         vp_home.setAdapter(myPagerAdapter);
         myPagerAdapter.addFrag(new AvailableCoursesFragment());
-        myPagerAdapter.addFrag(new AvailableCoursesFragment());
+        myPagerAdapter.addFrag(new EnrolledCoursesFragment());
         myPagerAdapter.addFrag(new AvailableCoursesFragment());
         myPagerAdapter.notifyDataSetChanged();
 

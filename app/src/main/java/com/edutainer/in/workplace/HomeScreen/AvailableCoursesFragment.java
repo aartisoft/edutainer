@@ -12,6 +12,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +60,9 @@ public class AvailableCoursesFragment extends Fragment implements View.OnClickLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_available_courses, container, false);
-        listCourses = new ArrayList<>(SplashActivity.courseModels);
+        listCourses = new ArrayList<>(SplashActivity.enrolledCourses);
 
+        System.out.println("EnrolledCourses: " + SplashActivity.enrolledCourses);
 
         initializeViews(view);
         return view;
@@ -103,6 +106,29 @@ public class AvailableCoursesFragment extends Fragment implements View.OnClickLi
         iv_product_e = view.findViewById(R.id.iv_product_e);
         iv_product_f = view.findViewById(R.id.iv_product_f);
 
+        for (int i= 0; i<listCourses.size(); i++ ){
+            switch (listCourses.get(i).getCourse_name()){
+                case "Understanding of IoT":
+                    cv_product_a.setVisibility(View.VISIBLE);
+                    break;
+                case "Understanding of Robotics":
+                    cv_product_b.setVisibility(View.VISIBLE);
+                    break;
+                case "IOT Basics":
+                    cv_product_c.setVisibility(View.VISIBLE);
+                    break;
+                case "IOT using Arduino":
+                    cv_product_d.setVisibility(View.VISIBLE);
+                    break;
+                case "IOT using Raspberry PI":
+                    cv_product_e.setVisibility(View.VISIBLE);
+                    break;
+                case "Basic Robotics":
+                    cv_product_f.setVisibility(View.VISIBLE);
+                    break;
+            }
+        }
+
     }
 
     @Override
@@ -137,8 +163,9 @@ public class AvailableCoursesFragment extends Fragment implements View.OnClickLi
 
     private void startActivity(int position, int drawable){
         startActivity(new Intent(getContext(), DetailActivity.class)
-            .putExtra("COURSE", listCourses.get(position))
-            .putExtra("IMAGE", drawable)
+                .putExtra("COURSE", listCourses.get(position))
+                .putExtra("IMAGE", drawable)
+                .putExtra("MODE", "LOCKED")
         );
         getActivity().overridePendingTransition(R.anim.slide_enter, R.anim.slide_exit);
 

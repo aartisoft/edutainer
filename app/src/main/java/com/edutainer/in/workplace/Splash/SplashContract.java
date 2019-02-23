@@ -7,6 +7,8 @@ public class SplashContract {
     interface SplashPresenter{
         void loadModel(Context context);
 
+        void loadEnrolled(Context context, String userId);
+
         void onDestroy();
 
     }
@@ -17,6 +19,8 @@ public class SplashContract {
         void hideProgress();
 
         void handleLoadModel(String string);
+
+        void handleEnrolled(String string);
     }
 
     interface SplashInteraction{
@@ -24,5 +28,10 @@ public class SplashContract {
             void onLoadModelFinished(String string);
         }
         void loadModel(Context context,OnLoadModelFinishedListener onLoadModelFinishedListener);
+
+        interface OnEnrolledFinishedListener {
+            void onEnrolledFinished(String string);
+        }
+        void enrolled(Context context, String userId, OnEnrolledFinishedListener onEnrolledFinishedListener);
     }
 }

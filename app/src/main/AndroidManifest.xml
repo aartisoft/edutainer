@@ -13,10 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
             android:name=".workplace.Splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -33,27 +29,33 @@
         <activity
             android:name=".workplace.Login.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBarNew"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".workplace.Register.RegisterActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBarNew"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".workplace.HomeScreen.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".workplace.CourseDetails.DetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBarNew"></activity>
+            android:theme="@style/AppTheme.NoActionBarNew" />
+
+        <activity android:name=".workplace.CourseTopics.TopicsActivity"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme.NoActionBarNew" />
+
+
         <activity
             android:name=".workplace.Checkout.CheckoutActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBarNew"></activity>
+            android:theme="@style/AppTheme.NoActionBarNew" />
         <activity
             android:name=".Allen.DrawerActivityTest"
             android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.razorpay.ApiKey"

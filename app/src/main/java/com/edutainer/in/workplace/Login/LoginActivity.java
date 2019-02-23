@@ -248,8 +248,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     }
 
     private void login() {
-        String string_email = et_email.getText().toString();
-        String string_password = et_password.getText().toString();
+        String string_email = et_email.getText().toString().trim();
+        String string_password = et_password.getText().toString().trim();
 
         if (string_email.equalsIgnoreCase("") || !isValidEmail(string_email)) {
             et_email.setError("Please Provide Valid Email Id");
@@ -261,9 +261,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
 
         presenter.login(string_email, string_password, LoginActivity.this);
         showProgress();
-
     }
-
 
     @Override
     public void onClick(View view) {
