@@ -1,6 +1,8 @@
 package com.edutainer.in.workplace.HomeScreen;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import com.edutainer.in.Allen.HomeScreen.FirstFragment;
 import com.edutainer.in.Allen.HomeScreen.SingleModulePagerAdapter;
 import com.edutainer.in.R;
+import com.edutainer.in.workplace.Drawer.NavDrawerActivity;
 import com.edutainer.in.workplace.Model.CourseModel;
 import com.edutainer.in.workplace.Splash.SplashActivity;
 
@@ -66,8 +69,6 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.Home
     }
 
     private void initializeViews(){
-       /* PagerHomeAdapter adapter = new PagerHomeAdapter(getSupportFragmentManager());
-        vp_home.setAdapter(adapter);*/
         listCourses = new ArrayList<>(SplashActivity.courseModels);
         mFragmentList = new ArrayList<>();
 
@@ -76,93 +77,41 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.Home
         vp_home.setAdapter(myPagerAdapter);
         myPagerAdapter.addFrag(new AvailableCoursesFragment());
         myPagerAdapter.addFrag(new EnrolledCoursesFragment());
-        myPagerAdapter.addFrag(new AvailableCoursesFragment());
+        myPagerAdapter.addFrag(new ProfileFragment());
         myPagerAdapter.notifyDataSetChanged();
 
         sliding_tabs = findViewById(R.id.sliding_tabs);
         sliding_tabs.setupWithViewPager(vp_home);
 
-        sliding_tabs.getTabAt(0).setIcon(R.drawable.ic_android);
-        sliding_tabs.getTabAt(1).setIcon(R.drawable.ic_android);
-        sliding_tabs.getTabAt(2).setIcon(R.drawable.ic_android);
-
-        /*for (int i = 0; i < myPagerAdapter.getCount(); i++) {
-            TabLayout.Tab tab = sliding_tabs.getTabAt(i);
-            if (tab != null) {
-                View v = LayoutInflater.from(getBaseContext()).inflate(R.layout.layout_tab_text, null, false);
-                tab.setCustomView(v);
-                ImageView iv_tab = v.findViewById(R.id.iv_tab);
-                TextView tv_tab = v.findViewById(R.id.tv_tab);
-
-                switch (i){
-                    case 0:
-                        iv_tab.setImageResource(R.drawable.ic_android);
-                        tv_tab.setText("COURSES");
-                        break;
-                    case 1:
-                        iv_tab.setImageResource(R.drawable.ic_android);
-                        tv_tab.setText("ENROLLED");
-
-                        break;
-                    case 2:
-                        iv_tab.setImageResource(R.drawable.ic_android);
-                        tv_tab.setText("PROFILE");
-
-                        break;
-                }
-
-            }
-        }
-
         sliding_tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                View v = LayoutInflater.from(getBaseContext()).inflate(R.layout.layout_tab_text, null, false);
-                tab.setCustomView(v);
-                ImageView iv_tab = v.findViewById(R.id.iv_tab);
-                TextView tv_tab = v.findViewById(R.id.tv_tab);
-                tv_tab.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.textColor));
-
-                switch (tab.getPosition()){
-                    case 0:
-                        iv_tab.setImageResource(R.drawable.ic_arrow);
-                        break;
-                    case 1:
-                        iv_tab.setImageResource(R.drawable.ic_arrow);
-                        break;
-                    case 2:
-                        iv_tab.setImageResource(R.drawable.ic_arrow);
-                        break;
-                }
+                int tabIconColor = ContextCompat.getColor(HomeActivity.this, R.color.textColor);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                View v = LayoutInflater.from(getBaseContext()).inflate(R.layout.layout_tab_text, null, false);
-                tab.setCustomView(v);
-                ImageView iv_tab = v.findViewById(R.id.iv_tab);
-                TextView tv_tab = v.findViewById(R.id.tv_tab);
-                tv_tab.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.textColor));
-
-                switch (tab.getPosition()){
-                    case 0:
-                        iv_tab.setImageResource(R.drawable.ic_android);
-                        break;
-                    case 1:
-                        iv_tab.setImageResource(R.drawable.ic_android);
-                        break;
-                    case 2:
-                        iv_tab.setImageResource(R.drawable.ic_android);
-                        break;
-                }
+                int tabIconColor = ContextCompat.getColor(HomeActivity.this, R.color.tabColor);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                int tabIconColor = ContextCompat.getColor(HomeActivity.this, R.color.textColor);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
             }
-        });*/
+        });
 
+        sliding_tabs.getTabAt(0).setIcon(R.drawable.ic_courses);
+        sliding_tabs.getTabAt(1).setIcon(R.drawable.ic_enrolled);
+        sliding_tabs.getTabAt(2).setIcon(R.drawable.ic_profile);
+
+        if (getIntent().getIntExtra("POSITION", 0) == 0){
+            vp_home.setCurrentItem(0);
+        }else if (getIntent().getIntExtra("POSITION", 0) == 1){
+            vp_home.setCurrentItem(1);
+        }
     }
 
     @Override
@@ -203,17 +152,33 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.Home
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.menu_courses) {
+            vp_home.setCurrentItem(0);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.menu_enrolled) {
+            vp_home.setCurrentItem(1);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.menu_privacy_policy) {
+            startActivity(new Intent(HomeActivity.this, NavDrawerActivity.class)
+                    .putExtra("FRAGMENT", "PRIVACY_POLICY")
+            );
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.menu_terms_condition) {
+            startActivity(new Intent(HomeActivity.this, NavDrawerActivity.class)
+                    .putExtra("FRAGMENT", "TERMS")
+            );
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.menu_about_us) {
+            startActivity(new Intent(HomeActivity.this, NavDrawerActivity.class)
+                    .putExtra("FRAGMENT", "ABOUT")
+            );
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.menu_refer_n_learn) {
+            startActivity(new Intent(HomeActivity.this, NavDrawerActivity.class)
+                    .putExtra("FRAGMENT", "REFER")
+            );
+
+        }else if (id == R.id.menu_logout){
 
         }
 

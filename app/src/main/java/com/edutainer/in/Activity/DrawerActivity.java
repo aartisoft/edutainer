@@ -38,7 +38,6 @@ public class DrawerActivity extends AppCompatActivity
 
     private boolean doubleBackToExitPressedOnce = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

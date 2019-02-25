@@ -20,7 +20,6 @@ public class WebViewActivity extends AppCompatActivity {
     WebView webview;
     Dialog cProgressDialog;
 
-
     public void initialize(Bundle save) {
         try {
             save = getIntent().getExtras();

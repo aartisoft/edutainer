@@ -9,12 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.edutainer.in.Activity.WebViewActivity;
 import com.edutainer.in.R;
 import com.edutainer.in.workplace.Model.TopicModel;
+import com.edutainer.in.workplace.TopicDoubts.DoubtActivity;
+import com.edutainer.in.workplace.TopicQuestions.QuestionsActivity;
+import com.edutainer.in.workplace.TopicVideo.VideoActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,8 +29,8 @@ public class TopicsActivity extends AppCompatActivity implements TopicContract.T
     private ListView listview;
     Dialog dialog;
 
-    private ArrayList<TopicModel> conceptModelArrayList = new ArrayList<>();
-    private String id = "";
+    private ArrayList<TopicModel> listTopics = new ArrayList<>();
+    private String topic_id = "";
     private String course_id = "";
     private String title = "";
 
@@ -43,6 +46,7 @@ public class TopicsActivity extends AppCompatActivity implements TopicContract.T
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        topic_id = getIntent().getStringExtra("TOPIC_ID");
         course_id = getIntent().getStringExtra("COURSE_ID");
         title = getIntent().getStringExtra("TITLE");
 
@@ -90,12 +94,12 @@ public class TopicsActivity extends AppCompatActivity implements TopicContract.T
                     String name = jsonObject.getString("name");
                     String content = jsonObject.getString("content");
                     String id = jsonObject.getString("id");
-                    conceptModelArrayList.add(new TopicModel(id, name, content));
+                    listTopics.add(new TopicModel(id, name, content));
 
                 }
-                conceptModelArrayList.add(new TopicModel("0", "Solve Problems", ""));
-                conceptModelArrayList.add(new TopicModel("0", "Clear Doubts", ""));
-                listview.setAdapter(new ListAdapterTopics(TopicsActivity.this, R.layout.layout_subcateogry_single_item, conceptModelArrayList, this, 0));
+                listTopics.add(new TopicModel("0", "Solve Problems", ""));
+                listTopics.add(new TopicModel("0", "Clear Doubts", ""));
+                listview.setAdapter(new ListAdapterTopics(TopicsActivity.this, R.layout.layout_subcateogry_single_item, listTopics, this, 0));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -106,28 +110,38 @@ public class TopicsActivity extends AppCompatActivity implements TopicContract.T
     public void getAdapterView(View view, List objects, int position, int from) {
         final TextView category_name = (TextView) view.findViewById(R.id.category_name);
         TextView nofquestion = (TextView) view.findViewById(R.id.nofquestion);
+        nofquestion.setVisibility(View.GONE);
 
 
-        final TopicModel categoryModel = conceptModelArrayList.get(position);
-        category_name.setText(categoryModel.getName());
+        final TopicModel topicModel = listTopics.get(position);
+        category_name.setText(topicModel.getName());
 
-        if (categoryModel.getName().equalsIgnoreCase("Solve Problems") || categoryModel.getName().equalsIgnoreCase("Clear Doubts")) {
+       /* if (topicModel.getName().equalsIgnoreCase("Solve Problems") || topicModel.getName().equalsIgnoreCase("Clear Doubts")) {
             nofquestion.setVisibility(View.GONE);
-        }
+        }*/
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*if (categoryModel.getName().equalsIgnoreCase("Solve Problems"))
-                    sendToActivity(QuestionActivity.class, new String[]{"id;" + id});
-                else if (categoryModel.getName().equalsIgnoreCase("Clear Doubts"))
-                    sendtoForum();
-                else {
-                    Intent intent = new Intent(VideoActivity.this, WebViewActivity.class);
+                System.out.println("TopicsActivity: solve problem: " + topicModel.getName());
+                System.out.println("TopicsActivity: solve problem: " + topicModel.getContent());
+                System.out.println("TopicsActivity: solve problem: " + topicModel.getId());
+
+                if (topicModel.getName().equalsIgnoreCase("Solve Problems")){
+                    startActivity(new Intent(TopicsActivity.this, QuestionsActivity.class)
+                        .putExtra("TOPIC_ID", topic_id)
+                        .putExtra("COURSE_ID", course_id)
+                    );
+                }else if (topicModel.getName().equalsIgnoreCase("Clear Doubts")){
+                    startActivity(new Intent(TopicsActivity.this, DoubtActivity.class)
+                            .putExtra("TOPIC_ID", topic_id)
+                    );
+                }else {
+                    Intent intent = new Intent(TopicsActivity.this, VideoActivity.class);
                     intent.putExtra("course_id", course_id);
-                    intent.putExtra("video_id", categoryModel.getId());
+                    intent.putExtra("video_id", topicModel.getId());
                     startActivity(intent);
-                }*/
+                }
             }
         });
     }

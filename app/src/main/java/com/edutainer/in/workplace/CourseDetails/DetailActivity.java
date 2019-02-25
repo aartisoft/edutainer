@@ -205,7 +205,7 @@ public class DetailActivity extends AppCompatActivity
                     String course_id = jsonObject.getString("course_id");
                     String name = jsonObject.getString("name");
                     String details=jsonObject.getString("lesson_details");
-                    listLessons.add(new LessonModel(id, course_id, name,details));
+                    listLessons.add(new LessonModel(id, course_id, name, details));
                 }
                 runOnUiThread(new Runnable() {
                     @Override

@@ -42,17 +42,16 @@ public class RecyclerAdapterTopics extends RecyclerView.Adapter<RecyclerAdapterT
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.tv_topic.setText(listTopics.get(i).getName());
+        final LessonModel model = listTopics.get(i);
+        viewHolder.tv_topic.setText(model.getName());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mode.equalsIgnoreCase("UNLOCKED"))
                     context.startActivity(new Intent(context, TopicsActivity.class)
-                        .putExtra("COURSE_ID", courseModel.getId()+"")
-                        .putExtra("TITLE", courseModel.getCourse_name())
-//                        .putExtra("id", courseModel.getId()+"")
-//                        .putExtra("title", courseModel.getCourse_name())
-//                        .putExtra("course_id", courseModel.getId()+"")
+                            .putExtra("TOPIC_ID", model.getId())
+                            .putExtra("COURSE_ID", model.getCourse_id()+"")
+                            .putExtra("TITLE", model.getName())
                     );
                 else
                     Toast.makeText(context, "Please Buy the course First!", Toast.LENGTH_SHORT).show();

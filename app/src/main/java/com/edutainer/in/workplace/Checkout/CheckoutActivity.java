@@ -171,7 +171,6 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutContr
         tv_address = findViewById(R.id.tv_address);
         tv_address.setTypeface(OpenSans_Bold);
 
-
         tv_amount = findViewById(R.id.tv_amount);
         tv_amount.setTypeface(OpenSans_SemiBold);
 
@@ -510,7 +509,7 @@ public class CheckoutActivity extends AppCompatActivity implements CheckoutContr
              * Merchant Name
              * eg: Rentomojo || HasGeek etc.
              */
-            options.put("name", "Merchant Name");
+            options.put("name", "Edutainer");
 
 
             /**

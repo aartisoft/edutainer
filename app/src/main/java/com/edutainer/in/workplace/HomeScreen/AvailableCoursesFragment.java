@@ -60,9 +60,7 @@ public class AvailableCoursesFragment extends Fragment implements View.OnClickLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_available_courses, container, false);
-        listCourses = new ArrayList<>(SplashActivity.enrolledCourses);
-
-        System.out.println("EnrolledCourses: " + SplashActivity.enrolledCourses);
+        listCourses = new ArrayList<>(SplashActivity.courseModels);
 
         initializeViews(view);
         return view;

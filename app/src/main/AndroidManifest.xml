@@ -12,6 +12,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".workplace.HomeScreen.Transaction.TransactionActivity"></activity>
+        <activity
+            android:name=".workplace.Drawer.NavDrawerActivity"
+            android:label="@string/title_activity_nav_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".workplace.Splash.SplashActivity"
             android:screenOrientation="portrait"
@@ -37,17 +42,32 @@
         <activity
             android:name=".workplace.HomeScreen.HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".workplace.CourseDetails.DetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarNew" />
-
-        <activity android:name=".workplace.CourseTopics.TopicsActivity"
-        android:screenOrientation="portrait"
-        android:theme="@style/AppTheme.NoActionBarNew" />
-
-
+        <activity
+            android:name=".workplace.CourseTopics.TopicsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew" />
+        <activity
+            android:name=".workplace.TopicQuestions.QuestionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew" />
+        <activity
+            android:name=".workplace.TopicQuestions.Result.ResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew" />
+        <activity
+            android:name=".workplace.TopicDoubts.DoubtActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew" />
+        <activity
+            android:name=".workplace.TopicVideo.VideoActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/SplashTheme" />
         <activity
             android:name=".workplace.Checkout.CheckoutActivity"
             android:screenOrientation="portrait"

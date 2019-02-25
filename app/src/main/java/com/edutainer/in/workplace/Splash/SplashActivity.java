@@ -232,6 +232,10 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
                             );
                         } else {
                             presenter.loadEnrolled(SplashActivity.this, AppPref.getInstance().getUserId());
+
+                            startActivity(new Intent(SplashActivity.this, HomeActivity.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            );
                         }
                     }
                 }, 2000);

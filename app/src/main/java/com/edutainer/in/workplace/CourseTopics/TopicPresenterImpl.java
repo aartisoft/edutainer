@@ -5,8 +5,8 @@ import android.content.Context;
 public class TopicPresenterImpl implements TopicContract.TopicPresenter,
     TopicContract.TopicInteraction.OnTopicFinishedListener {
 
-    TopicContract.TopicView topicView;
-    TopicContract.TopicInteraction topicInteraction;
+    private TopicContract.TopicView topicView;
+    private TopicContract.TopicInteraction topicInteraction;
 
     public TopicPresenterImpl(TopicContract.TopicView topicView, TopicContract.TopicInteraction topicInteraction) {
         this.topicView = topicView;

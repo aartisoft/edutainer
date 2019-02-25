@@ -1,5 +1,6 @@
 package com.edutainer.in.Allen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -15,6 +16,8 @@ import android.view.MenuItem;
 import com.edutainer.in.Allen.HomeScreen.FirstFragment;
 import com.edutainer.in.Allen.HomeScreen.SingleModulePagerAdapter;
 import com.edutainer.in.R;
+import com.edutainer.in.workplace.Drawer.NavDrawerActivity;
+import com.edutainer.in.workplace.HomeScreen.HomeActivity;
 import com.edutainer.in.workplace.HomeScreen.ProductFragment;
 import com.edutainer.in.workplace.Model.CourseModel;
 import com.edutainer.in.workplace.Splash.SplashActivity;
@@ -146,17 +149,19 @@ public class HomeActivityTest extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.menu_courses) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.menu_enrolled) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.menu_privacy_policy) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.menu_terms_condition) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.menu_about_us) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.menu_refer_n_learn) {
+
+        }else if (id == R.id.menu_logout){
 
         }
 
